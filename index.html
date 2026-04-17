@@ -379,35 +379,56 @@
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 20px;
+      gap: 30px;
+      align-items: flex-start;
     }
 
     .stat-item {
       text-align: center;
-      padding: 0 40px;
+      padding: 0 20px;
       flex: 1 1 200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .stat-number-wrapper {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      line-height: 1;
+      height: 60px; /* Altura fija para el número para evitar saltos */
     }
 
     .stat-num {
       font-family: var(--font-sans);
-      font-size: 48px;
+      font-size: 56px;
       font-weight: 800;
       color: var(--dorado);
       line-height: 1;
     }
 
+    .stat-symbol {
+      color: var(--dorado);
+      font-weight: 800;
+      line-height: 1;
+    }
+
     .stat-label {
-      font-weight: 700;
+      font-weight: 800;
       color: var(--verde-oscuro);
       text-transform: uppercase;
-      letter-spacing: 1px;
-      margin: 8px 0;
+      letter-spacing: 1.5px;
+      margin: 12px 0 6px;
       display: block;
+      font-size: 14px;
     }
 
     .stat-desc {
-      font-size: 14px;
+      font-size: 13px;
       color: var(--texto-suave);
+      line-height: 1.4;
+      max-width: 180px;
     }
 
     /* Problema & Solución */
@@ -415,6 +436,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 24px;
+      align-items: stretch;
     }
 
     .problema-card {
@@ -423,6 +445,9 @@
       border-radius: 12px;
       box-shadow: var(--sombra-card);
       border-top: 4px solid var(--dorado);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
     }
 
     .problema-icon {
@@ -766,11 +791,18 @@
       grid-template-columns: 1fr;
       gap: 12px;
       margin-bottom: 24px;
+      align-items: stretch;
     }
 
     @media (min-width: 560px) {
       .bonos-grid {
         grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 900px) {
+      .bonos-grid {
+        grid-template-columns: repeat(3, 1fr);
       }
     }
 
@@ -1248,19 +1280,25 @@
     <div class="container">
       <div class="stats-grid">
         <div class="stat-item fade-up">
-          <span class="stat-num" data-target="1847">0</span><span
-            style="font-size: 24px; color: var(--dorado); font-weight: 800; vertical-align: super;">+</span>
+          <div class="stat-number-wrapper">
+            <span class="stat-num" data-target="1847">0</span>
+            <span class="stat-symbol" style="font-size: 28px; margin-bottom: 15px;">+</span>
+          </div>
           <span class="stat-label">Mujeres</span>
           <span class="stat-desc">Estudiantes en todo Panamá</span>
         </div>
         <div class="stat-item fade-up">
-          <span class="stat-num" data-target="48">0</span>
+          <div class="stat-number-wrapper">
+            <span class="stat-num" data-target="48">0</span>
+          </div>
           <span class="stat-label">Horas</span>
           <span class="stat-desc">Resultados iniciales</span>
         </div>
         <div class="stat-item fade-up">
-          <span class="stat-num" data-target="99">0</span><span
-            style="font-size: 40px; color: var(--dorado); font-weight: 800;">%</span>
+          <div class="stat-number-wrapper">
+            <span class="stat-num" data-target="99">0</span>
+            <span class="stat-symbol" style="font-size: 44px;">%</span>
+          </div>
           <span class="stat-label">Garantía</span>
           <span class="stat-desc">De satisfacción total</span>
         </div>
@@ -1584,21 +1622,21 @@
           <div style="color: var(--dorado); margin-bottom: 10px;">★★★★★</div>
           <p>"Mi marido no reconocía cómo me veía en el espejo. Pero lo que más me impactó fue poder estar con mis hijas
             SIN ESE CANSANCIO que me frenaba. Ahora juego con ellas, salgo con mis amigas. VOLVÍ A VIVIR."</p>
-          <div style="margin-top: 15px; font-weight: 700;">— Roxana M., 45 años, San Miguelito</div>
+          <div style="margin-top: auto; padding-top: 15px; font-weight: 700;">— Roxana M., 45 años, San Miguelito</div>
         </div>
         <div class="problema-card fade-up">
           <div style="color: var(--dorado); margin-bottom: 10px;">★★★★★</div>
           <p>"Tenía 52 años y creía que la hinchazón y el cansancio eran cosa de la edad. En dos semanas entendí que NO
             ERA NORMAL. Mi mamá me dijo 'hija, volviste a ser la de antes'. Eso me partió el corazón. Significa que
             había desaparecido sin darme cuenta. Ahora estoy de nuevo acá."</p>
-          <div style="margin-top: 15px; font-weight: 700;">— Carmen R., 52 años, Panamá Viejo</div>
+          <div style="margin-top: auto; padding-top: 15px; font-weight: 700;">— Carmen R., 52 años, Panamá Viejo</div>
         </div>
         <div class="problema-card fade-up">
           <div style="color: var(--dorado); margin-bottom: 10px;">★★★★★</div>
           <p>"Trabajaba todo el día cansada, sin ganas. Llegaba a las reuniones del trabajo sin energía mental. En 14
             días cambió todo. Ahora tengo claridad, puedo pensar bien, participar sin ese agotamiento. Mi jefa preguntó
             qué había pasado. Le dije: 'Recuperé mi cabeza'."</p>
-          <div style="margin-top: 15px; font-weight: 700;">— Belinda S., 42 años, Punta Pacifica</div>
+          <div style="margin-top: auto; padding-top: 15px; font-weight: 700;">— Belinda S., 42 años, Punta Pacifica</div>
         </div>
       </div>
     </div>
